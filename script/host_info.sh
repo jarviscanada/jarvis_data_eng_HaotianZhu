@@ -1,5 +1,12 @@
 #! bin/bash
 
+
+# ./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
+
+# # Example
+# ./scripts/host_info.sh "localhost" 5432 "host_agent" "postgres" "mypassword"
+
+
 lscpu_out=$(lscpu)
 meminfo=$(cat /proc/meminfo)
 
@@ -18,20 +25,5 @@ cpu_mhz=$(echo "$lscpu_out"  | egrep "CPU MHz:" | awk '{print $3}' | xargs)
 
 l2_cache=$(echo "$lscpu_out"  | egrep "^L2 cache:" | awk '{print $3}' | xargs)
 
-
-
-
 total_mem=$(echo "$meminfo" | egrep "^MemTotal:" | awk '{print $2}' | xargs)
-
-timestamp=$(vmstat -t | grep -o -e '[0-9]\{4\}\-.*' | xargs)
-
-#usage
-memory_free=$(echo "$meminfo" | egrep "^MemFree:" | awk '{print $2}' | xargs)
-cpu_idle=$(vmstat -t | grep  -Po '\d+(?=\s+\d+\s+\d+\s+\d+\-.*)')
-cpu_kernel=$(vmstat -t | grep  -Po '\d+(?=\s+\d+\s+\d+\s+\d+\s+\d+\-.*)')
-disk_io=$(vmstat -d | grep  -Po '\d+(?=\s+\d+$)')
-disk_available=$(df -BM / | grep  -Po '\d+(?=M\s+\d+%)' )
-
-# testing
-#echo "$hostname|$cpu_number|$cpu_architecture|$cpu_model|$cpu_mhz|$l2_cache|$cpu_idle|$cpu_kernel|$disk_io|$disk_available"
 
