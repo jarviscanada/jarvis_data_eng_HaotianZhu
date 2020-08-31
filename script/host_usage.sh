@@ -32,7 +32,7 @@ fi
 meminfo=$(cat /proc/meminfo)
 hostname=$(hostname -f);
 
-=$(vmstat -t | grep -o -e '[0-9]\{4\}\-.*' | xargs)
+timestamp=$(vmstat -t | grep -o -e '[0-9]\{4\}\-.*' | xargs)
 
 #usage
 memory_free=$(echo "$meminfo" | egrep "^MemFree:" | awk '{print $2}' | xargs)
@@ -41,7 +41,7 @@ cpu_kernel=$(vmstat -t | grep  -Po '\d+(?=\s+\d+\s+\d+\s+\d+\s+\d+\-.*)')
 disk_io=$(vmstat -d | grep  -Po '\d+(?=\s+\d+$)')
 disk_available=$(df -BM / | grep  -Po '\d+(?=M\s+\d+%)' )
 
-insert_stmt="WITH id_table AS (SELECT id FROM host_info WHERE hostname='$hostname') INSERT INTO host_info (\"$timestamp\", \"$cpu_idle\", \"$cpu_kernel\", \"$disk_io\", \"$disk_available\", \"host_id\") VALUES ('$timestamp', $cpu_idle, $cpu_kernel, $disk_io, $disk_available, (select id from idt));"
+insert_stmt="WITH idt AS (SELECT id FROM host_info WHERE hostname='$hostname') INSERT INTO host_usage (\"timestamp\", \"cpu_idle\", \"cpu_kernel\", \"disk_io\", \"disk_available\",\"memory_free\", \"host_id\") VALUES ('$timestamp', $cpu_idle, $cpu_kernel, $disk_io, $disk_available, $memory_free, (select id from idt));"
 
 # testing
 #echo $insert_stmt;
