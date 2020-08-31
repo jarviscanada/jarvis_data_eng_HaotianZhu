@@ -1,7 +1,5 @@
 #! bin/bash
 
-action=$1
-
 #./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 if [[ "$(systemctl is-active docker)" = "inactive" ]];
 then
@@ -20,7 +18,7 @@ then
     exit 1;
   else
     echo "creating jrvs-psql container with psql database ...";
-   
+
     if [[ -z $2 ]] || [[ -z $3 ]];
     then
       echo "database name/password is Empty;"
