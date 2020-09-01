@@ -24,7 +24,7 @@ jarvis/script $ cd ../sql
 
 
 
-### initialize database table and insert data(Local)
+### initialize database table and insert data(Node)
 
 ```bash
 jarvis/sql $ psql -h [hostname] -p [port] -U [username] -f ddl.sql
@@ -34,7 +34,7 @@ jarvis/script $ bash ./scripts/host_info.sh [psql_host] [psql_port] [db_name] [p
 
 
 
-### set up crontab(Local)
+### set up crontab(Node)
 
 ```bash
 $ crontab -e
