@@ -94,6 +94,15 @@ queries.sql can be executed not only in server but also hosts which connect to t
 
 ## Scripts
 
+[psql_docker.sh](./script/host_info.sh) : `psql_docker.sh start|stop|create [db_username][db_password]` create a docker container or run/stop psql database
+
+[host_info.sh](./script/host_info.sh) : `host_info.sh psql_host psql_port db_name psql_user psql_password` fetch hardware information and insert data into db
+
+[host_usage.sh](./script/host_usage.sh) : `host_usage.sh psql_host psql_port db_name psql_user psql_password` fetch linux usage information and insert data into db
+
+[ddl.sql](./sql/ddl.sql) : `psql -h  psql_host -p psql_port -d db_name -U psql_user -f ddl.sql` to generate a host_info and a host_usage table in db
+
+[queries.sql](./sql/queries.sh) : `psql -h  psql_host -p psql_port -d db_name -U psql_user -f queries.sql` to get average memory usage and detect host failure
 
 
 
