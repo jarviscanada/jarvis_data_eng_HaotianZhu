@@ -111,5 +111,10 @@ queries.sql can be executed not only in server but also hosts which connect to t
 
 ## Improvements
 
+- write crontab setup into bash to auto set crontab
+
+- write specific error message to log file when new host usage insertion failed
+
+- make time intervation flexiable, admin is able to set time intervation to see average memory usage
 
 
