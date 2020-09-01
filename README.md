@@ -58,7 +58,7 @@ jarvis/sql $ psql -h [hostname] -p [port] -U [username] -f queries.sql
 
 
 
-queries.sql can be executed not only in server but also hosts which connect to the DB
+queries.sql can be executed not only in the server but also hosts which connect to the DB
 
 ![](./assert/Architecture.png)
 
@@ -111,10 +111,10 @@ queries.sql can be executed not only in server but also hosts which connect to t
 
 ## Improvements
 
-- write crontab setup into bash to auto set crontab
+- Use bash script to set crontab up.
 
-- write specific error message to log file when new host usage insertion failed
+- Write a specific error message to the log file when new host usage insertion failed.
 
-- make time intervation flexiable, admin is able to set time intervation to see average memory usage
+- Make time interval flexible, and admin can set time intervals to see average memory usage.
 
 
