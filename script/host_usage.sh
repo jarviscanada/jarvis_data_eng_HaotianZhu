@@ -15,6 +15,9 @@ PSQL_PORT=$2
 DB_NAME=$3
 PSQL_USER=$4
 
+if [[ $5 ]];then
+export PGPASSWORD=$5
+fi
 
 # checking if zero
 if [[ -z $PSQL_HOST ]] || [[ -z $PSQL_PORT ]] || [[ -z $DB_NAME ]] || [[ -z $PSQL_USER ]] || [[ -z $PGPASSWORD ]]; then
@@ -22,9 +25,6 @@ if [[ -z $PSQL_HOST ]] || [[ -z $PSQL_PORT ]] || [[ -z $DB_NAME ]] || [[ -z $PSQ
   exit 1;
 fi
 
-if [[ $5 ]];then
-PGPASSWORD=$5
-fi
 
 
 
@@ -45,6 +45,7 @@ insert_stmt="WITH idt AS (SELECT id FROM host_info WHERE hostname='$hostname') I
 
 # testing
 #echo $insert_stmt;
+date 
 
 psql -h $PSQL_HOST -p $PSQL_PORT  -d $DB_NAME -U $PSQL_USER  -c "$insert_stmt";
 
