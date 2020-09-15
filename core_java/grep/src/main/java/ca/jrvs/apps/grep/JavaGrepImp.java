@@ -91,6 +91,7 @@ public class JavaGrepImp implements JavaGrep{
                 lines.add(lineString);
                 lineString = reader.readLine();
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             logger.error("FileNotFoundException", e);
             throw new IllegalArgumentException("FileNotFoundException");
