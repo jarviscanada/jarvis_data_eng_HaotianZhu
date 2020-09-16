@@ -1,11 +1,8 @@
 package ca.jrvs.apps.grep;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -68,15 +65,13 @@ public class LambdaStreamExcImp implements LambdaStreamExc {
 
     @Override
     public void printMessages(String[] messages, Consumer<String> printer) {
-        // Question: how to use collect to do so
-        Arrays.stream(messages).peek(printer);
+        Arrays.stream(messages).forEach(t -> printer.accept(t));
     }
 
     @Override
     public void printOdd(IntStream intStream, Consumer<String> printer) {
-//        Stream<String> stream = this.getOdd(intStream).boxed().map(x -> x.toString());
-        String[] strings = (String[]) this.getOdd(intStream).mapToObj(Integer::toString).toArray();
-        // Question: should i do String[], if not how to do this
+        String[] strings = this.getOdd(intStream).mapToObj(Integer::toString)
+                .toArray(size->new String[size]);
         this.printMessages(strings, printer);
     }
 
