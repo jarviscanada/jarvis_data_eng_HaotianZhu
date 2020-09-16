@@ -77,7 +77,6 @@ public class LambdaStreamExcImp implements LambdaStreamExc {
 
     @Override
     public Stream<Integer> flatNestedInt(Stream<List<Integer>> ints) {
-
         Stream<Integer> stream = ints.flatMap(arr -> arr.stream());
         return stream;
     }

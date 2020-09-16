@@ -70,9 +70,11 @@ public class JavaGrepImp implements JavaGrep{
         }
 
         for(File file: files){
-            if(file.isFile()){
+            if(file.isHidden()) {
+                continue;
+            }if(file.isFile()){
                 outputFiles.add(file);
-            }else{
+            }else if(file.isDirectory()){
                 outputFiles.addAll(this.listFiles(file.getPath()));
             }
         }
