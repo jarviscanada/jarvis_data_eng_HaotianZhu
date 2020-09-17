@@ -70,9 +70,11 @@ public class JavaGrepImp implements JavaGrep{
         }
 
         for(File file: files){
-            if(file.isFile()){
+            if(file.isHidden()) {
+                continue;
+            }if(file.isFile()){
                 outputFiles.add(file);
-            }else{
+            }else if(file.isDirectory()){
                 outputFiles.addAll(this.listFiles(file.getPath()));
             }
         }
@@ -91,6 +93,7 @@ public class JavaGrepImp implements JavaGrep{
                 lines.add(lineString);
                 lineString = reader.readLine();
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             logger.error("FileNotFoundException", e);
             throw new IllegalArgumentException("FileNotFoundException");
