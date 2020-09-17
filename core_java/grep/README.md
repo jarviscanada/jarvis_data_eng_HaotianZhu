@@ -33,7 +33,7 @@ Currently, we find all lines and store them in memory and then write them to a f
 
 # Improvement
 
-- modify Interface, so that each function return Stream<File> or Stream<String> instead of List<File> and List<String>
+- modify Interface, so that each function return `Stream<File>` or `Stream<String>` instead of `List<File>` and `List<String>`
 
 - modify the algorithm
 
