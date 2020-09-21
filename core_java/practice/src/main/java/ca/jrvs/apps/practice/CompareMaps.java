@@ -12,4 +12,6 @@ public class CompareMaps implements Solution {
     public <K,V> boolean compareMaps(Map<K,V> m1, Map<K,V> m2){
         return m1.equals(m2);
     }
+
+//    public <K,V> boolean compareMaps
 }
