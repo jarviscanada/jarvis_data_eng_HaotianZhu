@@ -42,7 +42,6 @@ public class TwitterHttpHelper implements HttpHelper {
     public  HttpResponse httpPost(URI uri) {
         try{
             HttpPost postRequest = new HttpPost(uri);
-            postRequest.setHeader("Content-Type", "application/json");
             consumer.sign(postRequest);
             return this.httpClient.execute(postRequest);
         } catch (IOException | OAuthExpectationFailedException |

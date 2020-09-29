@@ -1,8 +1,6 @@
 package ca.jrvs.apps.twitter.Modules;
 
 import ca.jrvs.apps.twitter.utils.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.junit.Test;
 import java.io.IOException;
 
@@ -28,6 +26,7 @@ public class CoordinateTest {
         assertEquals(coordinate.getLongitude(), -122.40061f, 0);
         assertEquals(coordinate.getLatitude(), 37.7821120f, 0);
     }
+
 
     @Test
     public void testObjectToString() throws IOException {

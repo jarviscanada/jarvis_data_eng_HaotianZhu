@@ -1,17 +1,16 @@
 package ca.jrvs.apps.twitter.Modules;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-import java.util.List;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tweet {
 
-    @JsonProperty("create_at")
-    Date createdAt;
+    @JsonProperty("created_at")
+    String createdAt;
 
     @JsonProperty("id")
     Long id;
@@ -23,7 +22,7 @@ public class Tweet {
     String text;
 
     @JsonProperty("entities")
-    List<Entity> entities;
+    Entity entities;
 
     @JsonProperty("coordinates")
     Coordinate coordinate;
@@ -40,16 +39,24 @@ public class Tweet {
     @JsonProperty("favorited")
     Boolean favorited;
 
-    public Date getCreatedAt() {
-        return createdAt;
+
+    public Tweet(){}
+
+    public Tweet(String text, Float lat, Float lon){
+        this.coordinate = new Coordinate(lon, lat);
+        this.text = text;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -65,23 +72,23 @@ public class Tweet {
     }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
     public void setText(String text) {
         this.text = text;
     }
 
-    public List<Entity> getEntities() {
-        return entities;
+    public Entity getEntities() {
+        return this.entities;
     }
 
-    public void setEntities(List<Entity> entities) {
+    public void setEntities(Entity entities) {
         this.entities = entities;
     }
 
     public Coordinate getCoordinate() {
-        return coordinate;
+        return this.coordinate;
     }
 
     public void setCoordinate(Coordinate coordinate) {
@@ -89,7 +96,7 @@ public class Tweet {
     }
 
     public Integer getReTweetCount() {
-        return reTweetCount;
+        return this.reTweetCount;
     }
 
     public void setReTweetCount(Integer reTweetCount) {
@@ -97,7 +104,7 @@ public class Tweet {
     }
 
     public Integer getFavoriteCount() {
-        return favoriteCount;
+        return this.favoriteCount;
     }
 
     public void setFavoriteCount(Integer favoriteCount) {
@@ -105,7 +112,7 @@ public class Tweet {
     }
 
     public Boolean getRetweeted() {
-        return retweeted;
+        return this.retweeted;
     }
 
     public void setRetweeted(Boolean retweeted) {

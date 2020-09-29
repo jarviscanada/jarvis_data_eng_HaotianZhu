@@ -21,7 +21,6 @@ public class TwitterHttpHelperTest extends TestCase {
 
     @Before
     public void testSetUp(){
-        System.out.println("what");
         String CONSUMER_KEY = System.getenv("consumerKey");
         String CONSUMER_SECRET = System.getenv("consumerSecret");
         String ACCESS_TOKEN = System.getenv("accessToken");
