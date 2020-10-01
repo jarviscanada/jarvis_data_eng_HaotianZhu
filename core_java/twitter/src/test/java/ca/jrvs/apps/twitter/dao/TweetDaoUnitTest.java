@@ -1,6 +1,6 @@
 package ca.jrvs.apps.twitter.dao;
 
-import ca.jrvs.apps.twitter.Modules.Tweet;
+import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.helper.HttpHelper;
 import ca.jrvs.apps.twitter.utils.JsonParser;
 import org.junit.Test;

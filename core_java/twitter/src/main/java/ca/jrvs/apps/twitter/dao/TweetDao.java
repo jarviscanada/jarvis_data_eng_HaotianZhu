@@ -1,9 +1,8 @@
 package ca.jrvs.apps.twitter.dao;
-import ca.jrvs.apps.twitter.Modules.Tweet;
+import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.helper.HttpHelper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gdata.util.common.base.PercentEscaper;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import java.io.IOException;

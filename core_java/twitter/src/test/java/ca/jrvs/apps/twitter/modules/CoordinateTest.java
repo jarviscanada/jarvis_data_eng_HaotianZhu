@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter.Modules;
+package ca.jrvs.apps.twitter.modules;
 
 import ca.jrvs.apps.twitter.utils.JsonParser;
 import org.junit.Test;

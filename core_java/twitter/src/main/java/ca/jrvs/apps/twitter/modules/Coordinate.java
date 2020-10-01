@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter.Modules;
+package ca.jrvs.apps.twitter.modules;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
