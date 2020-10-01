@@ -29,8 +29,6 @@ public class TweetServiceUnitTest {
         when(dao.create(notNull())).thenReturn(new Tweet("output", 1f, 1f));
         Tweet tweet = service.postTweet(new Tweet("TEST", 50f, 0f));
         assertEquals(tweet.getText(), "output");
-
-
     }
 
 

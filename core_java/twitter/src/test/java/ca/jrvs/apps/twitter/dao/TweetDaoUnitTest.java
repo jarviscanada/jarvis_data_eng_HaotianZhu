@@ -113,6 +113,7 @@ public class TweetDaoUnitTest {
     @InjectMocks
     TweetDao dao;
 
+
     @Test
     public void create() throws IOException {
         when(mockerHelper.httpPost(isNotNull())).thenThrow(new RuntimeException("mock"));
