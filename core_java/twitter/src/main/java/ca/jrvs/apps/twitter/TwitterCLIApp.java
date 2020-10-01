@@ -7,6 +7,8 @@ import ca.jrvs.apps.twitter.helper.HttpHelper;
 import ca.jrvs.apps.twitter.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.service.TweetService;
+import ca.jrvs.apps.twitter.utils.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TwitterCLIApp {
 
@@ -18,20 +20,24 @@ public class TwitterCLIApp {
         this.controller = controller;
     }
 
-    public void run (String[] args){
+    public void run (String[] args) throws JsonProcessingException {
+        if(args.length <= 1){
+            throw new IllegalArgumentException(USAGE);
+        }
         String type = args[0].toLowerCase();
-        if(type == "post"){
+        if(type.equals("post")){
             controller.postTweet(args);
-        }else if(type == "get"){
-            controller.getTweet(args);
-        }else if(type == "delete"){
+        }else if(type.equals("get")){
+            Tweet tweet = controller.getTweet(args);
+            System.out.println(JsonParser.toJson(tweet, true, true));
+        }else if(type.equals("delete")){
             controller.deleteTweet(args);
         }else{
             throw new IllegalArgumentException(USAGE);
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         String consumerKey = System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
         String accessToken = System.getenv("accessToken");
@@ -42,6 +48,6 @@ public class TwitterCLIApp {
         TweetService service = new TweetService(dao);
         TweetController controller = new TweetController(service);
         TwitterCLIApp app = new TwitterCLIApp(controller);
-
+        app.run(args);
     }
 }
