@@ -1,10 +1,13 @@
 package ca.jrvs.apps.twitter.controller;
 import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.service.TweetService;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Controller
 public class TweetController implements Controller{
     private TweetService service;
 
+    @Autowired
     public TweetController(TweetService service){
         this.service = service;
     }

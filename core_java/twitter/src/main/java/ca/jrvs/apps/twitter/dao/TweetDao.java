@@ -5,9 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import java.io.IOException;
 import java.net.URI;
 
+
+@Repository
 public class TweetDao implements CrdDao<Tweet> {
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = API_BASE_URI+"/1.1/statuses/update.json";
@@ -22,7 +27,7 @@ public class TweetDao implements CrdDao<Tweet> {
 
     private HttpHelper httpHelper;
 
-
+    @Autowired
     public TweetDao(HttpHelper httpHelper){
         this.httpHelper = httpHelper;
     }

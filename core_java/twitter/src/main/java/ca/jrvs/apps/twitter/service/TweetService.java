@@ -2,10 +2,13 @@ package ca.jrvs.apps.twitter.service;
 
 import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.dao.TweetDao;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.util.function.Function;
 
+
+@org.springframework.stereotype.Service
 public class TweetService implements Service{
 
     private  TweetDao dao;
@@ -13,7 +16,7 @@ public class TweetService implements Service{
     private Function<Float, Boolean> validateLat = (lat) -> lat >= -90 && lat <= 90;
     private Function<Float, Boolean> validateLon = (lon) -> lon >= -180 && lon <=180;
 
-
+    @Autowired
     public TweetService(TweetDao dao){
         this.dao =dao;
     }

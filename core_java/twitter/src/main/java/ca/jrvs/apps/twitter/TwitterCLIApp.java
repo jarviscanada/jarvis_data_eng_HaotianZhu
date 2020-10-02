@@ -9,13 +9,18 @@ import ca.jrvs.apps.twitter.modules.Tweet;
 import ca.jrvs.apps.twitter.service.TweetService;
 import ca.jrvs.apps.twitter.utils.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterCLIApp {
 
     public final String USAGE = "TwitterCLIApp post|get|delete [options]";
 
     private TweetController controller;
 
+
+    @Autowired
     public TwitterCLIApp(TweetController controller){
         this.controller = controller;
     }
@@ -25,16 +30,17 @@ public class TwitterCLIApp {
             throw new IllegalArgumentException(USAGE);
         }
         String type = args[0].toLowerCase();
+        Tweet tweet;
         if(type.equals("post")){
-            controller.postTweet(args);
+            tweet = controller.postTweet(args);
         }else if(type.equals("get")){
-            Tweet tweet = controller.getTweet(args);
-            System.out.println(JsonParser.toJson(tweet, true, true));
+            tweet = controller.getTweet(args);
         }else if(type.equals("delete")){
-            controller.deleteTweet(args);
+            tweet =controller.deleteTweet(args);
         }else{
             throw new IllegalArgumentException(USAGE);
         }
+        System.out.println(JsonParser.toJson(tweet, true, true));
     }
 
     public static void main(String[] args) throws JsonProcessingException {
