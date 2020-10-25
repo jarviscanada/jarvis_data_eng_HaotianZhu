@@ -30,4 +30,15 @@ public class QuoteController extends Controller {
         }
     }
 
+    @PutMapping(path = "/iexMarketData")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void updateMarketData(){
+        try{
+            quoteService.updateMarketData();
+        }catch (Exception e){
+            throw  HttpResponseExceptionUtils.throwException(e);
+        }
+    }
+
 }

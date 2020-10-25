@@ -1,5 +1,7 @@
 package ca.jrvs.apps.trading.models;
 
+import java.util.Optional;
+
 public class Quote implements Entity<String> {
 
     private String ticker;
@@ -8,6 +10,17 @@ public class Quote implements Entity<String> {
     private Integer bidSize;
     private Double askPrice;
     private Integer askSize;
+
+    public Quote(){}
+
+    public Quote(IexQuote quote){
+        this.setId(quote.getSymbol());
+        this.setAskSize(Optional.ofNullable(quote.getIexAskSize()).map(Long::intValue).orElse(-1));
+        this.setAskPrice(Optional.ofNullable(quote.getIexAskPrice()).orElse(-1d));
+        this.setBidSize( Optional.ofNullable(quote.getIexBidSize()).map(Long::intValue).orElse(-1));
+        this.setBidPrice(Optional.ofNullable(quote.getIexBidPrice()).orElse(-1d));
+        this.setLastPrice(Optional.ofNullable(quote.getLatestPrice()).orElse(-1d));
+    }
 
     public Double getAskPrice() {
         return askPrice;

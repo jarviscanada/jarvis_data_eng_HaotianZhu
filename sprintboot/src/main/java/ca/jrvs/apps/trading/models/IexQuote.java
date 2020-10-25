@@ -191,7 +191,7 @@ public class IexQuote {
 
     @JsonProperty("symbol")
     public void setSymbol(String symbol) {
-        this.symbol = symbol;
+        this.symbol = symbol.toLowerCase();
     }
 
     @JsonProperty("companyName")

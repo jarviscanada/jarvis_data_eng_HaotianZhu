@@ -76,9 +76,11 @@ public class QuoteDao implements CrudRepository<Quote,String> {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public <S extends Quote> Iterable<S> saveAll(Iterable<S> iterable) {
+    public <S extends Quote> List<S> saveAll(Iterable<S> iterable) {
+        List<S> quotes = new ArrayList<>();
+        iterable.forEach(quotes::add);
         List<Object[]> batch = new ArrayList<>();
-        iterable.iterator().forEachRemaining(x->{
+        quotes.stream().forEach(x->{
             if(!existsById(x.getId())){
                 throw new RuntimeException("ticker "+x.getId() +" does not exist");
             }
@@ -89,7 +91,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
         if (totalRow != batch.size()) {
             throw new IncorrectResultSizeDataAccessException("Number of rows ", batch.size(), totalRow);
         }
-        return iterable;
+        return quotes;
     }
 
     @Override
@@ -110,7 +112,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
     }
 
     @Override
-    public Iterable<Quote> findAll() {
+    public List<Quote> findAll() {
         String selectSql = "SELECT * FROM " + TABLE_NAME;
         List<Quote> quotes =  jdbcTemplate
                 .query(selectSql, BeanPropertyRowMapper.newInstance(Quote.class));
@@ -118,7 +120,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
     }
 
     @Override
-    public Iterable<Quote> findAllById(Iterable<String> iterable) {
+    public List<Quote> findAllById(Iterable<String> iterable) {
         String selectSql = "SELECT * FROM " + TABLE_NAME + " where ticker=";
         List<String> tickers = new ArrayList<>();
         iterable.iterator().forEachRemaining(tickers::add);
@@ -146,7 +148,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
 
     @Override
     public void delete(Quote quote) {
-        throw  new UnsupportedOperationException("Not Implement");
+        this.deleteById(quote.getId());
     }
 
     @Override
