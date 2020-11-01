@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -39,18 +40,12 @@ public class MarketDataDaoTest {
     public void findAllById() {
         String[] s = new String[]{"aapl", "fb"};
         Iterable<String> symbols = Arrays.asList(s);
-        Iterable<IexQuote> result = dataDao.findAllById(symbols);
-
-        try {
-            s = new String[]{"aapl", "fb2"};
-            symbols = Arrays.asList(s);
-            dataDao.findAllById(symbols);
-            fail();
-        } catch (IllegalArgumentException e){
-            assertTrue(true);
-        } catch (Exception e){
-            fail();
-        }
+        List<IexQuote> result = dataDao.findAllById(symbols);
+        assertEquals(result.size(), s.length);
+        s = new String[]{"aapl", "fb2"};
+        symbols = Arrays.asList(s);
+        result = dataDao.findAllById(symbols);
+        assertNotEquals(result.size(), s.length);
     }
 
 

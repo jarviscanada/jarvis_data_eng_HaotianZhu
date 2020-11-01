@@ -45,15 +45,14 @@ public class QuoteServiceTest {
         saveQuote.setId(ticker1);
         quoteService.saveQuote(saveQuote);
 
-        saveQuote.setId(ticker2);
-        quoteService.saveQuote(saveQuote);
+        quoteService.saveQuote(new Quote(ticker2));
     }
 
 
     @After
     public void delete() {
-        quoteService.deleteQuoteById(ticker1);
         quoteService.deleteQuoteById(ticker2);
+        quoteService.deleteQuote(saveQuote);
     }
 
 
