@@ -11,7 +11,18 @@ public class Quote implements Entity<String> {
     private Double askPrice;
     private Integer askSize;
 
-    public Quote(){}
+    public Quote(){
+
+    }
+
+    public Quote(String ticker){
+        this.setId(ticker);
+        this.setAskSize(-1);
+        this.setAskPrice(-1d);
+        this.setBidSize(-1);
+        this.setBidPrice(-1d);
+        this.setLastPrice(-1d);
+    }
 
     public Quote(IexQuote quote){
         this.setId(quote.getSymbol());

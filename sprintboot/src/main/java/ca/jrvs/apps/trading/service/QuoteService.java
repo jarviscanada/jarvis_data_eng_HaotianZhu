@@ -27,17 +27,21 @@ public class QuoteService extends Service {
     }
 
 
-    public void updateMarketData(){
+    public List<Quote> updateMarketData(){
          Iterable<Quote> oldQuotes = this.quoteDao.findAll();
          List<String> ids = new ArrayList<>();
          oldQuotes.forEach(x -> ids.add(x.getId()));
          List<IexQuote> updateQuotes = findIexQuoteByTickers(ids.toArray(new String[ids.size()]));
          List<Quote> quotes = updateQuotes.stream().map(Quote::new).collect(Collectors.toList());
-         this.quoteDao.saveAll(quotes);
+         return this.saveQuotes(quotes);
     }
 
     public Quote saveQuote(Quote quote){
         return this.quoteDao.save(quote);
+    }
+
+    public Quote saveQuote(String ticker){
+        return this.quoteDao.save(new Quote(ticker));
     }
 
     public List<Quote> saveQuotes(List<Quote> quotes){
@@ -49,7 +53,6 @@ public class QuoteService extends Service {
     }
 
     public List<Quote> findQuotesById(String...tickers){
-
         return this.quoteDao.findAllById(Arrays.asList(tickers));
     }
 
@@ -69,8 +72,7 @@ public class QuoteService extends Service {
     }
 
     public List<IexQuote> findIexQuoteByTickers(String... tickers){
-        List<IexQuote> quotes = new ArrayList<>();
-        marketDao.findAllById(Arrays.asList(tickers)).iterator().forEachRemaining(quotes::add);
+        List<IexQuote> quotes = marketDao.findAllById(Arrays.asList(tickers));
         if(quotes.size() != tickers.length){
             logger.debug(tickers.toString() + " are invalid");
             throw new IllegalArgumentException(tickers.toString() + " are invalid");

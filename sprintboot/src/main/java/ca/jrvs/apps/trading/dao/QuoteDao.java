@@ -153,7 +153,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
 
     @Override
     public void deleteAll(Iterable<? extends Quote> iterable) {
-        throw  new UnsupportedOperationException("Not Implement");
+        throw new UnsupportedOperationException("Not Implement");
     }
 
     @Override

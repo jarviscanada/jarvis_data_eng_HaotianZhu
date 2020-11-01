@@ -11,10 +11,10 @@ public class HttpResponseExceptionUtils {
     public static ResponseStatusException throwException (Exception ex){
         if (ex instanceof  IllegalArgumentException){
             logger.debug(ex.getMessage(), ex);
-            return new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            return new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
         } else {
             logger.error(ex.getMessage(), ex);
-            return new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
         }
     }
 }

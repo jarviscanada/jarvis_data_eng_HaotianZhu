@@ -88,7 +88,7 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
     }
 
     @Override
-    public Iterable<IexQuote> findAllById(Iterable<String> iterable) {
+    public List<IexQuote> findAllById(Iterable<String> iterable) {
 
         String symbols = String.join(",", iterable);
         URI uri = URI.create(String.format(GET_QUOTES_PATH,symbols));
@@ -116,13 +116,10 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
             } else {
                 throw new RuntimeException(body);
             }
-        } catch (ClientProtocolException e) {
-            logger.error(e.getMessage());
-            throw new RuntimeException(e);
         } catch (IOException e) {
             logger.error(e.getMessage());
             throw new RuntimeException(e);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e){
             logger.error(e.getMessage());
             throw e;
         }
