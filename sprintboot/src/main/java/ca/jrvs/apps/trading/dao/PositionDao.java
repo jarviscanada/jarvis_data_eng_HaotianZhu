@@ -31,4 +31,11 @@ public class PositionDao {
         return positions;
     }
 
+    public Position findAllByAccountIdAndTicker(Integer id, String ticker){
+        String selectSql = "SELECT * FROM " + TABLE_NAME + " where account_id=? and ticker=?";
+        Position position =  jdbcTemplate
+                .queryForObject(selectSql, BeanPropertyRowMapper.newInstance(Position.class), id, ticker);
+        return position;
+    }
+
 }

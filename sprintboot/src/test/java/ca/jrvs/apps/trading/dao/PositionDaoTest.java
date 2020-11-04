@@ -97,9 +97,12 @@ public class PositionDaoTest {
 
     @Test
     public void findAll() {
-
         List<Position> positionList = this.positionDao.findAllByAccountId(saveAccount.getId());
         assertEquals(positionList.size(), 1);
         assertEquals(positionList.get(0).getPosition(), new Long(300));
+
+
+        Position position = this.positionDao.findAllByAccountIdAndTicker(saveAccount.getId(), saveQuote.getTicker());
+        assertEquals(position.getPosition(), new Long(300));
     }
 }
