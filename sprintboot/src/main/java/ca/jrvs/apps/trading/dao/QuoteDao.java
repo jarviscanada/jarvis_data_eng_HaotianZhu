@@ -4,6 +4,7 @@ import ca.jrvs.apps.trading.models.Quote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.data.repository.CrudRepository;
@@ -82,7 +83,7 @@ public class QuoteDao implements CrudRepository<Quote,String> {
         List<Object[]> batch = new ArrayList<>();
         quotes.stream().forEach(x->{
             if(!existsById(x.getId())){
-                throw new RuntimeException("ticker "+x.getId() +" does not exist");
+                throw new DataRetrievalFailureException("ticker "+x.getId() +" does not exist");
             }
             batch.add(this.getUpdateValues(x));
         });
