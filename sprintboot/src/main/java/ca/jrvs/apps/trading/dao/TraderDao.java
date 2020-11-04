@@ -106,7 +106,7 @@ public class TraderDao extends CrudIntDao<Trader> {
         List<Object[]> batch = new ArrayList<>();
         traders.stream().forEach(x->{
             if(!existsById(x.getId())){
-                throw new RuntimeException("trader "+x.getId().toString() +" does not exist");
+                throw new DataRetrievalFailureException("trader "+x.getId().toString() +" does not exist");
             }
             batch.add(this.getUpdateValues(x));
         });

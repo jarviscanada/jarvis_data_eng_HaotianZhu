@@ -7,6 +7,7 @@ import ca.jrvs.apps.trading.dao.SecurityOrderDao;
 import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataRetrievalFailureException;
 
 import java.util.List;
 
@@ -101,7 +102,8 @@ public class TraderAccountService extends Service {
         if(tradeId == null || fund <= 0){
             throw new IllegalArgumentException("tradeId should not be null and fund should > 0");
         }
-        Account account = accountDao.findByTraderId(tradeId).orElseThrow(RuntimeException::new);
+        Account account = accountDao.findByTraderId(tradeId)
+                .orElseThrow(()->new DataRetrievalFailureException("no such account"));
         account.depositAmount(fund);
         accountDao.save(account);
         return account;
@@ -111,7 +113,8 @@ public class TraderAccountService extends Service {
         if(tradeId == null || fund <= 0){
             throw new IllegalArgumentException("tradeId should not be null and fund should > 0");
         }
-        Account account = accountDao.findByTraderId(tradeId).orElseThrow(RuntimeException::new);
+        Account account = accountDao.findByTraderId(tradeId)
+                .orElseThrow(()->new DataRetrievalFailureException("no such trader"));
         if(account.getAmount() < fund){
             throw new IllegalArgumentException("insufficient fund");
         }

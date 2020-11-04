@@ -116,7 +116,7 @@ public class SecurityOrderDao extends CrudIntDao<SecurityOrder>{
         List<Object[]> batch = new ArrayList<>();
         orders.stream().forEach(x->{
             if(!existsById(x.getId())){
-                throw new RuntimeException("SecurityOrder "+x.getId().toString() +" does not exist");
+                throw new DataRetrievalFailureException("SecurityOrder "+x.getId().toString() +" does not exist");
             }
             batch.add(this.getUpdateValues(x));
         });
