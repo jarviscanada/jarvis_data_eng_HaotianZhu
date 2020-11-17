@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -66,13 +67,11 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
             } else if(response.getStatusLine().getStatusCode() == 404){
                return Optional.empty();
             } else {
-                throw new RuntimeException(body);
+                throw new DataRetrievalFailureException(body);
             }
         } catch (ClientProtocolException e) {
-            logger.error(e.getMessage(), e);
             throw new RuntimeException(e);
         } catch (IOException e) {
-            logger.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
@@ -117,10 +116,8 @@ public class MarketDataDao implements CrudRepository<IexQuote,String> {
                 throw new RuntimeException(body);
             }
         } catch (IOException e) {
-            logger.error(e.getMessage());
             throw new RuntimeException(e);
         } catch (IllegalArgumentException e){
-            logger.error(e.getMessage());
             throw e;
         }
     }

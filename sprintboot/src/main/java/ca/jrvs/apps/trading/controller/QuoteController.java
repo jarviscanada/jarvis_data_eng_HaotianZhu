@@ -4,7 +4,6 @@ import ca.jrvs.apps.trading.models.IexQuote;
 import ca.jrvs.apps.trading.models.Quote;
 import ca.jrvs.apps.trading.service.QuoteService;
 import ca.jrvs.apps.trading.utils.HttpResponseExceptionUtils;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
