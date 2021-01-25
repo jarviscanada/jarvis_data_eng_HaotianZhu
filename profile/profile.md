@@ -15,15 +15,15 @@ I am Haotian Zhu, who graduated from the University of Alberta in 2020.  I am a 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/linux)]: Coded bash scripts to generate PSQL database quickly via docker commands. Such PSQL database deployed into Cloud will record hardware specifications of multiple Linux servers/nodes. Developed SQL script to automatically insert Linux server hardware information into the database. It allows the Jarvis Linux Cluster Administration team to track and manage a Linux cluster of 10 nodes/server.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/linux_sql)]: Developed bash scripts to deploy PostgreSQL database with docker. Developed SQL script to automatically insert Linux server hardware information into the database. Developed a bash agent program that automatically parses hardware specifications and real-time hard usage data, which is persisted into the PostgreSQL database. It allows the Jarvis Linux Cluster Administration team to track and manage a Linux cluster.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/core_java)]:
       
-  - Twitter App: Developed an MVC twitter project using the java spring framework. It allows users to create, fetch, and delete Tweets by Twitter API
-  - JDBC App: Developed a PSQLdatabse program and write DAO to fetch/update/delete entries in the database.
-  - Grep App: Implemented a grep program in Java. The grep program allows users to research and find all text patterns recursively within a given folder and write all match text lines in an output text file.
+  - Twitter App: Developed a Java application that allows users to create, fetch, and delete Tweets by Twitter API. Designed the project structure and data structure to store the tweet object using MVC pattern and Java Spring framework. Implemented Restful APIs and applied unit and integration tests to them. And then dockerize the program via docker file and deployed it to the server.
+  - JDBC App: Developed a Java program that CRUD a customer and order database. Designed and coded Java components to store the table information.
+  - Grep App: Implemented a Linux grep program in Java, which allows users to research and find all text patterns recursively within a given folder and write all match text lines in an output text file. Optimized codes by using Java Stream API and lambda. And Deployed the program as a docker image, and users can run this project by docker commands.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/springboot)]: Developed an online trading simulation platform using SpringBoot and microservice architecture. Implemented Restful APIs to allow the customers to buy and sell stocks. Coded API to remotely call IEXCloud server to update stock market information. Programmed docker files to dockerize and deploy the back-end application and database separately. 
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/springboot)]: Developed an online trading simulation platform using SpringBoot and microservice architecture. Designed the layer structure and Java components with MVC pattern and spring framework. Implemented Restful APIs to allow the customers to buy and sell stocks and remotely call the IEXCloud server to update stock market information. Coded integration and unit tests using Junit and Mockito libraries and applied those tests for Restful APIs. Programmed docker files to dockerize and deploy the back-end application and database separately. 
 
 
 ## Highlighted Projects
@@ -31,7 +31,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu
 
 **Online Learning Web Application** [[GitHub](https://github.com/rw-moore/SciLO)]: Collaborated with a team to develop an online instructional tool for use by instructors across the University. Initiated and lead the complex migration of the project from Python 2.7 to Python 3.0 to enable the integration of new features. Designed and coded the Restful API in Django Restful Framework and integrated the React front-end project.
 
-**Independent Website Development** [[GitHub](https://github.com/haotianzhu/Moonback-reborn)]: Developed a single page application using Nodejs, Mongoose and Angular7. Deepened technical skills through the independent developmentx of an anime forum and the site's deployment on Azure Cloud. Implemented the dynamic loading contents when customers scroll the page down. Demonstrated willingness to learn and gain proficiency with web technologies. 
+**Independent Website Development** [[GitHub](https://github.com/haotianzhu/Moonback-reborn)]: Developed a single page application using Nodejs, Mongoose and Angular7. Deepened technical skills through the independent development of an anime forum and the site's deployment on Azure Cloud. Implemented the dynamic loading contents when customers scroll the page down. Demonstrated willingness to learn and gain proficiency with web technologies. 
 
 
 ## Professional Experiences
