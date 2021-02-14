@@ -25,6 +25,10 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/springboot)]: Developed an online trading simulation platform using SpringBoot and microservice architecture. Designed the layer structure and Java components with MVC pattern and spring framework. Implemented Restful APIs to allow the customers to buy and sell stocks and remotely call the IEXCloud server to update stock market information. Coded integration and unit tests using Junit and Mockito libraries and applied those tests for Restful APIs. Programmed docker files to dockerize and deploy the back-end application and database separately. 
 
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/python_data_anlytics)]: Implemented a JupyterNotebook using Python libraries, including pandas, NumPy, Matplotlib. The project extracts useful information and visualizes them as histograms, line plots, boxplots, and tables in the notebook. The project analyzes data, answers specific business questions, and determines Market potential.
+
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/hadoop)]: Collected and inserted big data into different Hadoop cluster tables in the google cloud platform. Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve bussiness problems.
+
 
 ## Highlighted Projects
 **OWL Event Insurance Website**: Lead with a 6-person team responsible for full-stack development of a responsive website for a startup event insurance company. Managed a team responsible for front-end delivery using React, including buildout of layout and colour schema. Engaged the SpringBoot back-end development team to integrate all front-end deliverables effectively. Produced a mobile-friendly website featuring social media authentication and online payment function. 
