@@ -48,7 +48,7 @@ spec:
         tier: database
     spec:
       containers:
-      - image: acrjarvisedward.azurecr.io/trading-psql:latest
+      - image: acrjarvishaotian.azurecr.io/trading-psql:latest
         name: psql
         env:
         - name: POSTGRES_PASSWORD
