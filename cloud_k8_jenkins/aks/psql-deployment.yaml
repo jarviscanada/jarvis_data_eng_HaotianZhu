@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: psql-service
+  labels:
+    app: trading
+    tier: service
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: trading
+    tier: database
+  clusterIP: None
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: psql-pvc
+  labels:
+    app: trading
+    tier: volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psql-database
+  labels:
+    app: trading
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: trading
+      tier: database
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: trading
+        tier: database
+    spec:
+      containers:
+      - image: acrjarvisedward.azurecr.io/trading-psql:latest
+        name: psql
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: password
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: db
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: user
+        - name: POSTGRES_PORT
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: port
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: host
+        ports:
+        - containerPort: 5432
+          name: psql
+        volumeMounts:
+        - name: psql-persistent-storage
+          mountPath: /var/lib/psql
+      volumes:
+      - name: psql-persistent-storage
+        persistentVolumeClaim:
+          claimName: psql-pvc
