@@ -36,7 +36,7 @@ spec:
         tier: application
     spec:
       containers:
-      - image: haotianzhu/trading-app:latest
+      - image: jrvs/trading-app-demo:latest
         name: trading-app
         env:
         - name: PSQL_HOST
