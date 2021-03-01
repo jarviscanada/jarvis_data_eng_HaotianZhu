@@ -18,7 +18,7 @@ pipeline {
         //Deploy
         RESOURCE_GROUP='rg-traindg-app-aks'
         CLUSTER_NAME='aks-trading-app'
-        DOCKER_REPO='acrjarvisedward2.azurecr.io'
+        DOCKER_REPO='acrjarvishaotian.azurecr.io'
         DEPLOYMENT_NAME='deployment.apps/springboot-demo-app-dev'
     }
 
