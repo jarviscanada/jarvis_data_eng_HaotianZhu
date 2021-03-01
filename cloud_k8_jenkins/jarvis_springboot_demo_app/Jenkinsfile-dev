@@ -10,7 +10,7 @@ pipeline {
         AZ_TENANT=credentials('AZ_TENANT_DEV')
 
         //Build
-        ACR_NAME='acrJarvisEdward2'
+        ACR_NAME='acrjarvishaotian'
         //${BUILD_NUMBER} is a Jenkins built-in env https://bit.ly/32mySlQ
         //Note: double quote is neccessary here
         IMAGE_NAME="springboot_demo_app:${BUILD_NUMBER}"
