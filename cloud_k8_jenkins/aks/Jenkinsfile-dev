@@ -10,7 +10,7 @@ pipeline {
         AZ_TENANT=credentials('AZ_TENANT_DEV')
 
         //Build
-        ACR_NAME='acrjarvishaotian'
+        ACR_NAME='haotian'
         //${BUILD_NUMBER} is a Jenkins built-in env https://bit.ly/32mySlQ
         //Note: double quote is neccessary here
         IMAGE_NAME="trading-app:${BUILD_NUMBER}"
@@ -19,7 +19,7 @@ pipeline {
         RESOURCE_GROUP='trading-app'
         CLUSTER_NAME='trading-app-dev'
         DOCKER_REPO='haotian.azurecr.io'
-        DEPLOYMENT_NAME='deployment.apps/springboot-demo-app-dev'
+        DEPLOYMENT_NAME='deployment.apps/backend-app'
     }
 
     stages {
