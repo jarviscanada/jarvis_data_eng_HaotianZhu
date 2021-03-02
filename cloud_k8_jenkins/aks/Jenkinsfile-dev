@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
           steps {
             dir("springboot") {
-                sh ' az acr build --image trading-app --registry $ACR_NAME --file Dockerfile .'
+                sh ' az acr build --image ${IMAGE_NAME} --registry $ACR_NAME --file Dockerfile .'
             }
           }
         }
