@@ -33,7 +33,7 @@
 
   
 
-  <img src="./hadoop.pdf" style="zoom:100%;" />
+  <img src="./hadoop.pdf" style="zoom:200%;" />
 
   
 
