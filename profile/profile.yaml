@@ -63,13 +63,14 @@ Programmed docker files to dockerize and deploy the back-end application and dat
   - name: "Python Data Analytics"
     git_url: "/python_data_anlytics"
     description: 
-      "Implemented a JupyterNotebook using Python libraries, including pandas, NumPy, Matplotlib. The project extracts useful information
-and visualizes them as histograms, line plots, boxplots, and tables in the notebook. The project analyzes data, answers specific business questions, and determines Market potential."
+      "Data analytics on Sales data via using Python, JupyterNotebook, Pandas, NumPy, Matplotlib and so on. The project contains two parts, the data warehouse and notebook. Docker deploys them both separately. 
+      The JupyterNotebook analytics and visualize the monthly growth and the distribution of different customers. Also, used RFM and segmentations to the group and tag customers to analyze the target group and digging some potential marketing."
   
   - name: "Hadoop"
     git_url: "/hadoop"
-    description: "Collected and inserted big data into different Hadoop cluster tables in the google cloud platform. 
-    Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve bussiness problems."
+    description: "Collected and inserted big data into different Hadoop cluster tables in the google cloud platform.
+    Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve business problems. Used different parsing strategies to create tables from GCP and HDFS to test the performance.
+    Also used partition to index data and used parquet to stored data to improve the query performance. "
 
 # List of personal or academic projects
 # Feel free to add more projects
