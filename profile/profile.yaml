@@ -72,6 +72,10 @@ Programmed docker files to dockerize and deploy the back-end application and dat
     Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve business problems. Used different parsing strategies to create tables from GCP and HDFS to test the performance.
     Also used partition to index data and used parquet to stored data to improve the query performance. "
 
+  - name: "DevOps"
+    git_url: "/cloud_k8_jenkins"
+    description: "Deployed the Springboot App into Azure Kubernetes service. Writed the Jenkinsfile to defining pipelines in SCM. The project used automated tools and Azure Cloud Services like VMs, LoadBalancer and Azure Kubernetes Services to continuously and iteratively develop, test and deliver the SpringBoot App to clients. "
+
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
