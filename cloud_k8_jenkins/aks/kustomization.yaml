@@ -1,12 +1,12 @@
 secretGenerator:
 - name: jrvs-trading
   literals:
-  - password=password
-  - user=postgres
-  - db=jrvstrading
-  - host=localhost
-  - port=5432
-  - token=pk_5ef3f9e7444942319436da6cf3e670be
+  - password=
+  - user=
+  - db=
+  - host=
+  - port=
+  - token=
 resources:
   - psql-deployment.yaml
   - trading-deployment.yaml
