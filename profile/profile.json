@@ -48,6 +48,16 @@
       "description": "Developed an online trading simulation platform using SpringBoot and microservice architecture. Designed the layer structure and Java components with MVC pattern and spring framework. Implemented Restful APIs to allow the customers to buy and sell stocks and remotely call the IEXCloud server to update stock market information. Coded integration and unit tests using Junit and Mockito libraries and applied those tests for Restful APIs. Programmed docker files to dockerize and deploy the back-end application and database separately. ",
       "git_url": "/springboot",
       "name": "Springboot App"
+    },
+    {
+      "description": "Data analytics on Sales data via using Python, JupyterNotebook, Pandas, NumPy, Matplotlib and so on. The project contains two parts, the data warehouse and notebook. Docker deploys them both separately. The JupyterNotebook analytics and visualize the monthly growth and the distribution of different customers. Also, used RFM and segmentations to the group and tag customers to analyze the target group and digging some potential marketing.",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "Collected and inserted big data into different Hadoop cluster tables in the google cloud platform. Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve business problems. Used different parsing strategies to create tables from GCP and HDFS to test the performance. Also used partition to index data and used parquet to stored data to improve the query performance. ",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
     }
   ],
   "name": "Haotian Zhu",
