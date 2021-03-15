@@ -1,0 +1,12 @@
+secretGenerator:
+- name: jrvs-trading
+  literals:
+  - password=
+  - user=
+  - db=
+  - host=
+  - port=
+  - token=
+resources:
+  - psql-deployment.yaml
+  - trading-deployment.yaml
