@@ -29,6 +29,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu
 
 **Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/hadoop)]: Collected and inserted big data into different Hadoop cluster tables in the google cloud platform. Used Apache Hive and Zeppelin Notebook to help the data analytics team to solve business problems. Used different parsing strategies to create tables from GCP and HDFS to test the performance. Also used partition to index data and used parquet to stored data to improve the query performance. 
 
+**DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_HaotianZhu/tree/master/cloud_k8_jenkins)]: Deployed the Springboot App into Azure Kubernetes service. Writed the Jenkinsfile to defining pipelines in SCM. The project used automated tools and Azure Cloud Services like VMs, LoadBalancer and Azure Kubernetes Services to continuously and iteratively develop, test and deliver the SpringBoot App to clients. 
+
 
 ## Highlighted Projects
 **OWL Event Insurance Website**: Lead with a 6-person team responsible for full-stack development of a responsive website for a startup event insurance company. Managed a team responsible for front-end delivery using React, including buildout of layout and colour schema. Engaged the SpringBoot back-end development team to integrate all front-end deliverables effectively. Produced a mobile-friendly website featuring social media authentication and online payment function. 
