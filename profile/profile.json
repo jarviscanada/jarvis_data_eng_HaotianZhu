@@ -60,6 +60,11 @@
       "name": "Hadoop"
     },
     {
+      "description": "Performed big data analytics on retail transaction data using Azure Databricks; Migrated JupyterNotebook from Python Data Analytics project into Azure Databricks and Implement the Notebook writing PySpark code to run queries to solve the business problems. Modified Hadoop project, use SparkSession instead of Hive SQL in Zeppelin Notebook to improve the performance ",
+      "git_url": "spark",
+      "name": "Spark"
+    },
+    {
       "description": "Deployed the Springboot App into Azure Kubernetes service. Writed the Jenkinsfile to defining pipelines in SCM. The project used automated tools and Azure Cloud Services like VMs, LoadBalancer and Azure Kubernetes Services to continuously and iteratively develop, test and deliver the SpringBoot App to clients. ",
       "git_url": "/cloud_k8_jenkins",
       "name": "DevOps"
