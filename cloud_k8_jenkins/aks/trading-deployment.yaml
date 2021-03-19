@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+  labels:
+    app: trading
+    tier: service
+spec:
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: trading
+    tier: application
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app
+  labels:
+    app: trading
+    tier: application
+spec:
+  selector:
+    matchLabels:
+      app: trading
+      tier: application
+  strategy:
+    type: Recreate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: trading
+        tier: application
+    spec:
+      containers:
+      - image: haotian.azurecr.io/trading-app:latest
+        name: trading-app
+        env:
+        - name: PSQL_HOST
+          value: psql-service
+        - name: IEX_PUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: token
+        - name: PSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: password
+        - name: PSQL_DB
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: db
+        - name: PSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: user
+        - name: PSQL_PORT
+          valueFrom:
+            secretKeyRef:
+              name: jrvs-trading
+              key: port
+        ports:
+        - containerPort: 5000
+          name: app

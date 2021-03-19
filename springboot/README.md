@@ -11,7 +11,7 @@ Initialize the database application
 
 ```bash
 cd ./springboot/psql
-docker build -t trading-psl .  #docker builds ./Dokcerfile by default
+docker build -t trading-psql .  #docker builds ./Dokcerfile by default
 ```
 
 
@@ -47,7 +47,7 @@ docker run --name trading-app-dev \
 -e "PSQL_PASSWORD=${password}" -e "PSQL_PORT=5432" -e "PSQL_DB=${database_name}" \
 -e "token=${your_token}" \
 --network ${network} \
--p 5000:8080 -t trading-app
+-p 5000:5000 -t trading-app
 ```
 
 
